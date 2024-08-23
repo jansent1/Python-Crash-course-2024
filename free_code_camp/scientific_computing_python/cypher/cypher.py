@@ -23,5 +23,3 @@ def caesar(message, offset):
     # print('plain text:', text_2)        
     # Print only the encrypted text:        
     print('encrypted text:', encrypted_text)
-
-caesar(text_1, shift)
