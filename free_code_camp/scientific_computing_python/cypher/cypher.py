@@ -1,25 +1,41 @@
 text_1 = 'Hello World'
 text_2 = 'Hello Zaira'
 text_3 = 'Albatross'
-shift = 3
+custom_key = 'python'
 
-# If I'm correct i can use a parameter to enter the different texts into the caesar function
+# What if we could use a different key  for every char? then our message would be much more secure encrypted!
 
-def caesar(message, offset):
+def vigenere(message, key, direction=1):
+    key_index = 0
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    encrypted_text = ''
+    final_message = ''
 
     for char in message.lower():
-        if char == ' ':
-            # If the char is a space we can skip it by adding 1 to char to reach the next char:
-            encrypted_text += char
+        # check if a character is NOT an alphanumeric character:
+        if not char.isalpha():
+            final_message += char
         else:
+            # Find the right key character to encode
+            key_char = key[key_index % len(key)]
+            key_index += 1
+            # Define the offset and the encrypted letter:
+            offset = alphabet.index(key_char)
             index = alphabet.find(char)
             # Make sure the X, Y and Z are linked to the remainder/beginning of the alphabet:
-            new_index = (index + offset) % len(alphabet)
+            new_index = (index + offset * direction) % len(alphabet)
             # Update encrypted text to char + 3:
             encrypted_text += alphabet[new_index]
     # Print the original text:
     # print('plain text:', text_2)        
-    # Print only the encrypted text:        
-    print('encrypted text:', encrypted_text)
+    return final_message
+
+def encrypt(message, key):
+    return vigenere(message, key)
+    
+def decrypt(message, key):
+    return vigenere(message, key, -1)
+    
+encryption = encrypt(text_1, custom_key)
+print(encryption)
+decryption = decrypt(encryption, custom_key)
+print(decryption)
