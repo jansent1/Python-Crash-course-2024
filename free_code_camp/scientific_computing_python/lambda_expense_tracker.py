@@ -17,6 +17,6 @@ def print_expenses(expenses):
         print(f'Amount: {expense["amount"]}, Category: {expense["category"]}')
 
 def total_expenses(expenses):
-    pass    # see lambda functions!
+    return sum(map(lambda expense: expense['amount'], expenses))   # see lambda functions in Google docs!
 
 expenses = []
