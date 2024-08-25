@@ -7,9 +7,12 @@ The project has two phases: first you'll use a for loop to implement the program
 """
 
 def convert_to_snake_case(pascal_or_camel_cased_string):
-    snake_cased_char_list = []
+    # Turn the empty list into a list comprehension that converts each character in pascal_or_camel_cased_string into a lowercase character and prepends an underscore to it:
+    snake_cased_char_list = ['_' + char.lower() if char.isupper() else char for char in pascal_or_camel_cased_string]
+
+    return ''.join(snake_cased_char_list).strip('_')
 
 def main():
-    print(convert_to_snake_case('aLongAndComplexString'))
+    print(convert_to_snake_case('IAmAPascalCasedString'))
 
 main()
