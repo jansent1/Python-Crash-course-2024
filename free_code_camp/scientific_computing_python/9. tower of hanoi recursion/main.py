@@ -17,6 +17,22 @@ You cannot place larger disks on top of smaller ones
 The Tower of Hanoi puzzle can be solved in 2**n - 1 moves, where n is the number of disks.
 """
 
+def make_allowed_move(rod1, rod2):    
+    forward = False
+    if not rods[rod2]:
+        forward = True
+    elif rods[rod1] and rods[rod1][-1] < rods[rod2][-1]:
+        forward = True              
+    if forward:
+        print(f'Moving disk {rods[rod1][-1]} from {rod1} to {rod2}')
+        rods[rod2].append(rods[rod1].pop())
+    else:
+        print(f'Moving disk {rods[rod2][-1]} from {rod2} to {rod1}')
+        rods[rod1].append(rods[rod2].pop())
+    
+    # display our progress
+    print(rods)
+
 
 # Move Algorithm using ITTERATION:
 def move(n, source, auxiliary, target):
@@ -26,19 +42,7 @@ def move(n, source, auxiliary, target):
         remainder = (i + 1) % 3
         if remainder == 1:
             print(f'Move {i + 1} allowed between {source} and {target}')
-            forward = False
-            if not rods[target]:
-                forward = True
-            elif rods[source] and rods[source][-1] < rods[target][-1]:
-                forward = True
-            if forward:
-                print(f'Moving disk {rods[source][-1]} from {source} to {target}')
-                rods[target].append(rods[source].pop())
-            else:
-                print(f'Moving disk {rods[target][-1]} from {target} to {source}')
-                rods[source].append(rods[target].pop())
-            # display our progress:
-            print(rods)
+            make_allowed_move(source, target)
         elif remainder == 2:
             print(f'Move {i + 1} allowed between {source} and {auxiliary}')
         elif remainder == 0:
