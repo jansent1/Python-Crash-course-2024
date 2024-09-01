@@ -58,8 +58,17 @@ def arithmetic_arranger(problems, show_answers=False):
             dashes += ' ' * 4
 
     #8. Formatting answers row:
+    for i in range(len(answers)):
+        space_width = max(len(numbers[2 * i]), len(numbers[2 * i + 1])) + 2
+        answer_row += str(answers[i]).rjust(space_width)
+    
+    #9. Spacing between answers:
+        if i != len(answers) - 1:
+            answer_row += ' ' * 4
 
-        print(dashes)
+    #10. Final arrangement and return:
+    
+    print(answer_row)
     return problems
 
 print(f'\n{arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"])}')
