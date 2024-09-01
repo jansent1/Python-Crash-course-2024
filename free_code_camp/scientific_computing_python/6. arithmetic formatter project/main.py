@@ -24,8 +24,9 @@ def arithmetic_arranger(problems, show_answers=False):
         if not number.isdigit():
             return 'Error: Numbers must only contain digits.'
     # 4. Check max-digits of the operands:
-        elif len(number) > 4:
-            'Error: Numbers cannot be more than four digits.'
+    for number in numbers:
+        if len(number) > 4:
+            return 'Error: Numbers cannot be more than four digits.'
  
     #5. Evaluation:
     answers = []
