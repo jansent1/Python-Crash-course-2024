@@ -47,8 +47,11 @@ def arithmetic_arranger(problems, show_answers=False):
 
     #6. Formatting problem rows:
         space_width = max(len(numbers[i]), len(numbers[i + 1])) + 2
+        top_row += numbers[i].rjust(space_width)
+        bottom_row += operator + numbers[i + 1].rjust(space_width - 1)
+        dashes += '-' * space_width
 
-        print(space_width)
+        print(bottom_row)
     return problems
 
 print(f'\n{arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"])}')
