@@ -27,7 +27,28 @@ def arithmetic_arranger(problems, show_answers=False):
         elif len(number) > 4:
             'Error: Numbers cannot be more than four digits.'
  
+    #5. Evaluation:
+    answers = []
+    top_row = ''
+    bottom_row = ''
+    answer_row = ''
+    dashes = ''
 
+    for i in range(0, len(numbers), 2):
+        num1 = int(numbers[i])
+        num2 = int(numbers[i + 1])
+        operator = operators[i // 2]
+
+        if operator == '+':
+            result = num1 + num2
+        else:
+            result = num1 - num2
+        answers.append(result)
+
+    #6. Formatting problem rows:
+        space_width = max(len(numbers[i]), len(numbers[i + 1])) + 2
+
+        print(space_width)
     return problems
 
 print(f'\n{arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"])}')
