@@ -67,8 +67,11 @@ def arithmetic_arranger(problems, show_answers=False):
             answer_row += ' ' * 4
 
     #10. Final arrangement and return:
-    
-    print(answer_row)
-    return problems
+    if show_answers:
+        arranged_problems = '\n'.join((top_row, bottom_row, dashes, answer_row))
+    else: 
+        arranged_problems = '\n'.join((top_row, bottom_row, dashes))
 
-print(f'\n{arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"])}')
+    return arranged_problems
+
+print(f'\n{arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"], True)}')
