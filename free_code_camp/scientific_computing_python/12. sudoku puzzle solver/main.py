@@ -19,7 +19,13 @@ class Board:
         return all((self.board[row][col] != num for row in range(9)))
     # Check if a given number can be added into a specified 3x3 square:
     def valid_in_square(self, row, col, num):
-        pass
+        row_start = (row // 3) * 3
+        col_start = (col // 3) * 3
+        for row_no in range(row_start, row_start + 3):
+            for col_no in range(col_start, col_start + 3):
+                if self.board[row_no][col_no] == num:
+                    return False
+        return True
 
 
 # the board will be a list of lists with 0 indicating the empty fields to solve:
@@ -39,3 +45,4 @@ gameboard = Board(puzzle)
 # print(gameboard.board)
 # print(gameboard.valid_in_row(0,8))
 # print(gameboard.valid_in_col(0,7))
+# print(gameboard.valid_in_square(1,0,3))
