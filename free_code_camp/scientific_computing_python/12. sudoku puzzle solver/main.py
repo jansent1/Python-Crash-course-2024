@@ -1,6 +1,8 @@
 class Board:
     def __init__(self, board):
         self.board = board
+    def find_empty_cell(self):
+      pass
 
 
 # the board will be a list of lists with 0 indicating the empty fields to solve:
@@ -17,4 +19,4 @@ puzzle = [
 ]
 
 gameboard = Board(puzzle)
-print(gameboard.board)
+# print(gameboard.board)
