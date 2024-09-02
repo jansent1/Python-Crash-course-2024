@@ -26,6 +26,16 @@ class Board:
                 if self.board[row_no][col_no] == num:
                     return False
         return True
+    # Check if a given number is a valid choice for an empty cell in the sudoku board by validating its compatibility with the row, column, and 3x3 square of the specified empty cell:
+    def is_valid(self, empty, num):
+        row,col = empty
+        valid_in_row = self.valid_in_row(row, num)
+        valid_in_col = self.valid_in_col(col, num)
+        valid_in_square = self.valid_in_square(row, col, num)
+        return all([valid_in_row, valid_in_col, valid_in_square])
+    # Method for solving the actual sudoku:
+    def solver(self):
+        pass
 
 
 # the board will be a list of lists with 0 indicating the empty fields to solve:
