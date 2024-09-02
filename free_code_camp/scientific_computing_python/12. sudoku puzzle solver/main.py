@@ -35,7 +35,16 @@ class Board:
         return all([valid_in_row, valid_in_col, valid_in_square])
     # Method for solving the actual sudoku:
     def solver(self):
-        pass
+        if (next_empty := self.find_empty_cell()) is None:
+            return True
+        for guess in range(1,10):
+            if self.is_valid(next_empty, guess):
+                row,col = next_empty
+                self.board[row][col] = guess
+                if self.solver():
+                    return True
+                self.board[row][col] = 0
+        return False
 
 
 # the board will be a list of lists with 0 indicating the empty fields to solve:
