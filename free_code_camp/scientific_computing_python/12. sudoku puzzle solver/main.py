@@ -1,6 +1,7 @@
 class Board:
     def __init__(self, board):
         self.board = board
+    # check for the first empty cell (0):
     def find_empty_cell(self):
       for row, contents in enumerate(self.board):
             try:
@@ -10,6 +11,9 @@ class Board:
                 pass
     # indicate the board is completely filled:
       return None
+    # check if a given number can be added into a specified row of the board: 
+    def valid_in_row(self, row, num):
+        return num not in self.board[row]
 
 
 # the board will be a list of lists with 0 indicating the empty fields to solve:
@@ -27,3 +31,4 @@ puzzle = [
 
 gameboard = Board(puzzle)
 # print(gameboard.board)
+# print(gameboard.valid_in_row(0,8))
