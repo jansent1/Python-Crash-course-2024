@@ -14,6 +14,12 @@ class Board:
     # check if a given number can be added into a specified row of the board: 
     def valid_in_row(self, row, num):
         return num not in self.board[row]
+    # Check if a given number can be added into a specified col of the board:
+    def valid_in_col(self, col, num):
+        return all((self.board[row][col] != num for row in range(9)))
+    # Check if a given number can be added into a specified 3x3 square:
+    def valid_in_square(self, row, col, num):
+        pass
 
 
 # the board will be a list of lists with 0 indicating the empty fields to solve:
@@ -32,3 +38,4 @@ puzzle = [
 gameboard = Board(puzzle)
 # print(gameboard.board)
 # print(gameboard.valid_in_row(0,8))
+# print(gameboard.valid_in_col(0,7))
