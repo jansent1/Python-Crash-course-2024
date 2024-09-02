@@ -7,6 +7,9 @@ The merge sort algorithm mainly performs three actions:
 The above happens recursively until the sub-parts are merged into the complete sorted sequence.
 """
 def merge_sort(array):
+    # base case:
+    if len(array) <= 1:
+        return
     middle_point = len(array) // 2
     # slice each half and assign to a var:
     left_part = array[:middle_point]
@@ -28,7 +31,20 @@ def merge_sort(array):
             array[sorted_index] = right_part[right_array_index]
             right_array_index += 1
         sorted_index += 1
+
     while left_array_index < len(left_part):
         array[sorted_index] = left_part[left_array_index]
         left_array_index += 1
         sorted_index += 1
+
+    while right_array_index < len(right_part):
+        array[sorted_index] = right_part[right_array_index]
+        right_array_index += 1
+        sorted_index += 1
+
+if __name__ == '__main__':
+    numbers = [4, 10, 6, 14, 2, 1, 8, 5]
+    print('Unsorted array: ')
+    print(numbers)
+    merge_sort(numbers)
+    print('Sorted array: ' + str(numbers))
