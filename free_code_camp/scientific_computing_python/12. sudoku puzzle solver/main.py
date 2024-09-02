@@ -2,7 +2,14 @@ class Board:
     def __init__(self, board):
         self.board = board
     def find_empty_cell(self):
-      pass
+      for row, contents in enumerate(self.board):
+            try:
+                col = contents.index(0)
+                return row,col
+            except ValueError:
+                pass
+    # indicate the board is completely filled:
+      return None
 
 
 # the board will be a list of lists with 0 indicating the empty fields to solve:
