@@ -1,6 +1,13 @@
 class Board:
     def __init__(self, board):
         self.board = board
+    def __str__(self):
+        board_str = ''
+        for row in self.board:
+            row_str = [str(i) if i else '*' for i in row]
+            board_str += ' '.join(row_str)
+            board_str += '\n'
+        return board_str
     # check for the first empty cell (0):
     def find_empty_cell(self):
       for row, contents in enumerate(self.board):
@@ -46,6 +53,15 @@ class Board:
                 self.board[row][col] = 0
         return False
 
+def solve_sudoku(board):
+    gameboard = Board(board)
+    print(f'Puzzle to solve:\n{gameboard}')
+    if gameboard.solver() == True:
+        print(f'Solved puzzle:\n{gameboard}')
+    else:
+        print('The provided puzzle is unsolvable.')
+    return gameboard
+
 
 # the board will be a list of lists with 0 indicating the empty fields to solve:
 puzzle = [
@@ -60,7 +76,9 @@ puzzle = [
   [1, 7, 0, 0, 0, 6, 0, 0, 5]
 ]
 
-gameboard = Board(puzzle)
+solve_sudoku(puzzle)
+
+# gameboard = Board(puzzle)
 # print(gameboard.board)
 # print(gameboard.valid_in_row(0,8))
 # print(gameboard.valid_in_col(0,7))
