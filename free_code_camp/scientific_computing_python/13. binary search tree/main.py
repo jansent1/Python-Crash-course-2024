@@ -50,6 +50,9 @@ class BinarySearchTree:
         while node.left is not None:
             node = node.left
         return node.key
+    
+    def delete(self, key):
+        self.root = self._delete(self.root, key) 
 
 bst = BinarySearchTree()
 
