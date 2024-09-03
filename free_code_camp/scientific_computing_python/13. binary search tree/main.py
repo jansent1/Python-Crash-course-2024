@@ -45,18 +45,28 @@ class BinarySearchTree:
             node.key = self._min_value(node.right) 
             node.right = self._delete(node.right, node.key)
         return node
+    def delete(self, key):
+        self.root = self._delete(self.root, key)
             
     def _min_value(self, node):
         while node.left is not None:
             node = node.left
-        return node.key
+        return node.key 
     
-    def delete(self, key):
-        self.root = self._delete(self.root, key) 
+    def _inorder_traversal(self, node, result):
+        if node:
+            self._inorder_traversal(node.left, result)
+            result.append(node.key)
+
+    def inorder_traversal(self):
+        result = []
+        self._inorder_traversal(self.root, result)
+        return result
 
 bst = BinarySearchTree()
 
 nodes = [50, 30, 20, 40, 70, 60, 80]
 for node in nodes:
     bst.insert(node)
-# print('Search for 80:',bst.search(80))
+    
+print('Search for 80:',bst.search(80))
