@@ -19,4 +19,5 @@ and ofcourse cording to the description and message for each merge if a signific
 suit = "hearts"
 rank = "K"
 value = 10
-print("Your card is: " + rank)
+print("Your card is: " + rank + " of " + suit)
+# or: print(f"Your card is: {rank}")    to use something called an fString.
