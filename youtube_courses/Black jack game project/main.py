@@ -25,6 +25,7 @@ for suit in suits:
         cards.append([suit, rank])
 
 def shuffle():
+    # use the random library to shuffle the list of cards:
     random.shuffle(cards)
 
 
@@ -36,7 +37,21 @@ def deal(number):
     return cards_dealt
 
 shuffle()
+
+# Basic logic to assign two cards from the shuffled deck to the cards_dealt list:
 cards_dealt = deal(2)
-card1 = cards_dealt[0]
-card2 = cards_dealt[1]
-print(card1, card2)
+card = cards_dealt[0]
+rank = card[1]
+
+# Basic if logic to assign the dealt cards to a value of the ranks list:
+if rank == 'A':
+    value = 11
+elif rank == 'J' or rank == 'Q' or rank == 'K':
+    value = 10
+else:
+    value = rank
+
+# Store the rank and value in a dictionary:
+rank_dict = {"rank": rank, "Value": value}
+
+print(rank, value)
