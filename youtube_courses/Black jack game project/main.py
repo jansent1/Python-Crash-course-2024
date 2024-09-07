@@ -16,6 +16,13 @@ and ofcourse cording to the description and message for each merge if a signific
 """
 import random
 
+class Card:
+    # 3.
+    # everytime a card is rendererd it will be a Ace of hearts for now:
+    def __init__(self):
+        self.suit = "hearts"
+        self.rank = "A"
+
 class Deck:
     # 2. 
 
