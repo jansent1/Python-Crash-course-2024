@@ -1,3 +1,6 @@
+
+# Note that now we've created a Card and Deck class that are usable for basicly any card game
+
 """
 DOCTYPE:
 This will be a game implementing everything I've learned and can recap about Python today.
@@ -52,7 +55,7 @@ class Deck:
         # fill the empty cards list with the deck and values stored in the ranks list:
         for suit in suits:
             for rank in ranks:
-                self.cards.append([suit, rank])
+                self.cards.append(Card(suit, rank)) # instead of appending suit and rank, we'll append an instance of the card class. Now it's filled with cards 
 
     def shuffle(self):
         # use the random library to shuffle the list of cards:
