@@ -14,14 +14,29 @@ Check all the different versions on the github page because we are going to do a
 
 and ofcourse cording to the description and message for each merge if a significant part of the program is finished.
 """
+import random
 
 # 1. 
+cards = []
 suits = ["spades", "clubs", "heart", "diamonds"]
-suit = suits[2]
-rank = "K"
-value = 10
-print("Your card is: " + rank + " of " + suit)
-# or: print(f"Your card is: {rank}")    to use something called an fString.
-suits.append("snakes")
+ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 for suit in suits:
-    print(suit)
+    for rank in ranks:
+        cards.append([suit, rank])
+
+def shuffle():
+    random.shuffle(cards)
+
+
+def deal(number):
+    cards_dealt = []
+    for x in range(number):
+        card = cards.pop()
+        cards_dealt.append(card)
+    return cards_dealt
+
+shuffle()
+cards_dealt = deal(2)
+card1 = cards_dealt[0]
+card2 = cards_dealt[1]
+print(card1, card2)
