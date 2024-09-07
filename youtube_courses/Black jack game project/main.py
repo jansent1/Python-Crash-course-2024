@@ -48,6 +48,7 @@ def shuffle():
 
 
 def deal(number):
+    """ Create an empty list and pop of the last item in cards. Append that item the empty list """
     cards_dealt = []
     for x in range(number):
         card = cards.pop()
@@ -56,8 +57,9 @@ def deal(number):
 
 shuffle()
 
-# get the value of each rank without using an if statement. Instead we'll store both rankName and value in the ranks list using dictionaries.
+"""get the value of each rank without using an if statement. Instead we'll store both rankName and value in the ranks list using dictionaries."""
 
 card = deal(1)[0]   # deal() returns a list. in this case containing one item since number = 1. [0] allows us to acces that first item.
 
+print(card[1]["value"])
 print(card)
