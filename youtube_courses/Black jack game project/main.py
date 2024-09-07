@@ -16,8 +16,12 @@ and ofcourse cording to the description and message for each merge if a signific
 """
 
 # 1. 
-suit = "hearts"
+suits = ["spades", "clubs", "heart", "diamonds"]
+suit = suits[2]
 rank = "K"
 value = 10
 print("Your card is: " + rank + " of " + suit)
 # or: print(f"Your card is: {rank}")    to use something called an fString.
+suits.append("snakes")
+for suit in suits:
+    print(suit)
