@@ -37,21 +37,3 @@ def deal(number):
     return cards_dealt
 
 shuffle()
-
-# Basic logic to assign two cards from the shuffled deck to the cards_dealt list:
-cards_dealt = deal(2)
-card = cards_dealt[0]
-rank = card[1]
-
-# Basic if logic to assign the dealt cards to a value of the ranks list:
-if rank == 'A':
-    value = 11
-elif rank == 'J' or rank == 'Q' or rank == 'K':
-    value = 10
-else:
-    value = rank
-
-# Store the rank and value in a dictionary:
-rank_dict = {"rank": rank, "value": value}
-
-print(rank_dict["rank"], rank_dict["value"])
