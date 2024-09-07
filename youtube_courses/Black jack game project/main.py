@@ -72,8 +72,8 @@ class Deck:
                 cards_dealt.append(card)
         return cards_dealt
 
-# Create a new instance of the just created Card class:
-# it will be a J of hearts for now
-card1 = Card("hearts", {"rank": "J", "value": 10})
-
-print(card1)
+class Hand:
+    def __init__(self, dealer=False):
+        self.cards = []
+        self.value = 0
+        self.dealer = dealer
