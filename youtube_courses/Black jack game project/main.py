@@ -23,7 +23,7 @@ class Card:
         self.suit = suit
         self.rank = rank
     def __str__(self):      # if a class has this specific method, it's called upon when the print() method is used on an instance of this class
-        return f"{self.rank["rank"]} of {self.suit}"
+        return f"{self.rank['rank']} of {self.suit}"
 
 class Deck:
     # 2. 
