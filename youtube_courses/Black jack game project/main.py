@@ -47,15 +47,17 @@ class Deck:
 
     def shuffle(self):
         # use the random library to shuffle the list of cards:
-        random.shuffle(self.cards)
+        if len(self.cards) > 1:     # If a deck doesn't contain more then 1 card it needs no shuffling
+            random.shuffle(self.cards)
 
 
     def deal(self, number):
         """ Create an empty list and pop of the last item in cards. Append that item the empty list """
         cards_dealt = []
         for x in range(number):
-            card = self.cards.pop()
-            cards_dealt.append(card)
+            if len(self.cards) > 0:     # Before dealing you'll want to check if the cards list is not empty.
+                card = self.cards.pop()
+                cards_dealt.append(card)
         return cards_dealt
     
 deck1 = Deck()
