@@ -19,9 +19,11 @@ import random
 class Card:
     # 3.
     # everytime a card is rendererd it will be a Ace of hearts for now:
-    def __init__(self):
-        self.suit = "hearts"
-        self.rank = "A"
+    def __init__(self, suit, rank):
+        self.suit = suit
+        self.rank = rank
+    def __str__(self):      # if a class has this specific method, it's called upon when the print() method is used on an instance of this class
+        return self.rank["rank"] + " of " + self.suit
 
 class Deck:
     # 2. 
@@ -66,9 +68,8 @@ class Deck:
                 card = self.cards.pop()
                 cards_dealt.append(card)
         return cards_dealt
-    
-deck1 = Deck()
-deck2 = Deck()
-deck2.shuffle()
-print(deck1.cards)
-print(deck2.cards)
+
+# Create a new instance of the just created Card class:
+card1 = Card("hearts", {"rank": "J", "value": 10})
+
+print(card1)
