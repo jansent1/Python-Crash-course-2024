@@ -21,7 +21,7 @@ import random
 
 class Card:
     # 3.
-    # everytime a card is rendererd it will be a Ace of hearts for now:
+    # everytime a card is rendererd:
     def __init__(self, suit, rank):
         self.suit = suit
         self.rank = rank
@@ -73,6 +73,7 @@ class Deck:
         return cards_dealt
 
 # Create a new instance of the just created Card class:
+# it will be a J of hearts for now
 card1 = Card("hearts", {"rank": "J", "value": 10})
 
 print(card1)
