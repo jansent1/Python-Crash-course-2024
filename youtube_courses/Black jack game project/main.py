@@ -52,6 +52,6 @@ else:
     value = rank
 
 # Store the rank and value in a dictionary:
-rank_dict = {"rank": rank, "Value": value}
+rank_dict = {"rank": rank, "value": value}
 
-print(rank, value)
+print(rank_dict["rank"], rank_dict["value"])
