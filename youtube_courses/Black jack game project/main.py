@@ -103,8 +103,13 @@ class Hand:
     
     def display(self):
         # 3 single quotes to be able to use single and double quotes inside your f string:
-        print(f'''Your hand: ''')
+        print(f'''{"Dealer's" if self.dealer else "Your"} hand: ''')    # Ternary operator to check if self.dealer is True
+        for card in self.cards:
+            print(card)
 
+        if not self.dealer:
+            print("Value: ", self.get_value( ))
+        print("")
 
 
 # create a new deck instance and shuffle it:
@@ -116,4 +121,4 @@ hand = Hand()
 hand.add_card(deck.deal(2))
 
 # test case:
-print(hand.cards[0], hand.cards[1])
+hand.display()
