@@ -76,7 +76,7 @@ class Hand:
     def __init__(self, dealer=False):
         self.cards = []
         self.value = 0
-        self.dealer = dealer
+        self.dealer = dealer        # True if the instance is the dealer's hand.
     def add_card(self, cards_list):
         self.cards.extend(cards_list)
 # Add the ability to calculate the value of a hand:
@@ -96,6 +96,16 @@ class Hand:
     def get_value(self):
         self.calculate_value()
         return self.value
+    
+    # Return True if blackjack occured:
+    def is_blackjack(self):
+        return self.get_value() == 21
+    
+    def display(self):
+        # 3 single quotes to be able to use single and double quotes inside your f string:
+        print(f'''Your hand: ''')
+
+
 
 # create a new deck instance and shuffle it:
 deck = Deck()
