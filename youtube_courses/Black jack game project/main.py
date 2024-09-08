@@ -77,3 +77,16 @@ class Hand:
         self.cards = []
         self.value = 0
         self.dealer = dealer
+    def add_card(self, cards_list):
+        self.cards.extend(cards_list)
+
+# create a new deck instance and shuffle it:
+deck = Deck()
+deck.shuffle()
+
+# create a new Hand instance and add 2 cards from the cards_dealt list:
+hand = Hand()
+hand.add_card(deck.deal(2))
+
+# test case:
+print(hand.cards[0], hand.cards[1])
