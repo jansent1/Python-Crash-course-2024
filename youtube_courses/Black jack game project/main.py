@@ -101,14 +101,17 @@ class Hand:
     def is_blackjack(self):
         return self.get_value() == 21
     
-    def display(self):
+    def display(self, show_all_dealer_cards=False):
         # 3 single quotes to be able to use single and double quotes inside your f string:
         print(f'''{"Dealer's" if self.dealer else "Your"} hand: ''')    # Ternary operator to check if self.dealer is True
-        for card in self.cards:
-            print(card)
+        for index, card in enumerate(self.cards):
+            if index == 0 and self.dealer and not show_all_dealer_cards and not self.is_blackjack():
+                print("Hidden")
+            else:    
+                print(card)
 
         if not self.dealer:
-            print("Value: ", self.get_value( ))
+            print("Value: ", self.get_value())
         print("")
 
 
