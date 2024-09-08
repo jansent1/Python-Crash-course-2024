@@ -115,13 +115,32 @@ class Hand:
         print("")
 
 
-# create a new deck instance and shuffle it:
-deck = Deck()
-deck.shuffle()
+class Game:
+    def play(self):
+        game_number = 0
+        games_to_play = 0
 
-# create a new Hand instance and add 2 cards from the cards_dealt list:
-hand = Hand()
-hand.add_card(deck.deal(2))
+        while games_to_play <= 0:
+            try:
+                games_to_play = int(input("How many games do you want to play? "))
+            except:
+                print("You must enter a number.")
 
-# test case:
-hand.display()
+    # Main game loop:
+        while game_number < games_to_play:
+            game_number += 1
+    # prepair and shuffle the deck:
+            deck = Deck()
+            deck.shuffle()
+    # Creates a hand for the player and dealer:
+            player_hand = Hand()
+            dealer_hand = Hand(dealer=True)
+    # for loop to add two cards from the deck to each Hand:
+            for i in range(2):
+                player_hand.add_card(deck.deal(1))
+                dealer_hand.add_card(deck.deal(1))
+
+
+# Create a game instance to start playing:
+g = Game()
+g.play()
