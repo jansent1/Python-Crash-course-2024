@@ -79,6 +79,23 @@ class Hand:
         self.dealer = dealer
     def add_card(self, cards_list):
         self.cards.extend(cards_list)
+# Add the ability to calculate the value of a hand:
+    def calculate_value(self):
+        self.value = 0
+        has_ace = False         # we don't need self because this variable is only used right here. 
+
+        for card in self.cards:
+            card_value = int(card.rank["value"])
+            self.value += card_value
+            if card.rank["rank"] == 'A':        # check for an Ace which can be 1 OR 11
+                has_ace = True
+
+        if has_ace and self.value > 21:
+            self.value -= 10
+
+    def get_value(self):
+        self.calculate_value()
+        return self.value
 
 # create a new deck instance and shuffle it:
 deck = Deck()
